@@ -4,6 +4,7 @@ import b1 from "../css/photos/books/book3.jpg"
 import b2 from "../css/photos/books/book4.jpg" 
 import b3 from "../css/photos/books/book5.jpg" 
 import "../css/HomeData.css"
+import Zoom from "react-reveal/Zoom"
 
 const HomeData = () => {
     
@@ -59,9 +60,10 @@ const HomeData = () => {
 
   return (
     <Container style={{ fontFamily: 'Open Sans'}}>
+        <Zoom>
         <div>
             <a href="/books" style={{ textDecoration: 'none', color: 'black'}}>
-                <h1 style={{ marginTop: '100px' }} className="text-center" >
+                <h1 style={{ marginTop: '200px', fontSize: '40px'}} className="text-center" >
                             
                 הספרים שלי
 
@@ -128,13 +130,15 @@ const HomeData = () => {
                 </div>
             </div>
             
-                <div className="d-flex align-items-center justify-content-center mt-5">
+                <div className="d-flex align-items-center justify-content-center">
                     <div>
-                        <Button variant="dark" style={{ fontSize: "30px", backgroundColor: "gray" }} onClick={() => moveLeft()}> ← </Button>
-                        <Button variant="dark" style={{ fontSize: "30px", backgroundColor: "gray" }} onClick={() => moveRight()}>→</Button>
+                        <Button variant="dark" style={{ fontSize: "30px", backgroundColor: "gray", margin: "5px" }} onClick={() => moveLeft()}> ← </Button>
+                        <Button variant="dark" style={{ fontSize: "30px", backgroundColor: "gray",  margin: "5px" }} onClick={() => moveRight()}>→</Button>
                     </div>
                 </div>
         
+
+        </Zoom>
     </Container>
   )
 }

@@ -28,7 +28,7 @@ const Header = () => {
                         <Nav.Link href="#action2">יעוץ מקצועי</Nav.Link>    
                         <Nav.Link href="/holistic">טיפול הוליסטי</Nav.Link>    
                         <Nav.Link href="/hybrid">הבית ההיברידי</Nav.Link>    
-                        <Nav.Link href="#action2">רובינזון בתקשורת</Nav.Link>    
+                        <Nav.Link href="/headlines">רובינזון בתקשורת</Nav.Link>    
                     </Nav>
                 </Offcanvas.Body>
                 </Navbar.Offcanvas>
