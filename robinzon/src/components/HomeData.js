@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
-import { Container, Card, Button } from "react-bootstrap"
+import React, { useState, useEffect } from 'react'
+import { Container, Card, Button, Row, Col} from "react-bootstrap"
+import robinzon from "../css/photos/SHY_3851.jpg"
 import b1 from "../css/photos/books/book3.jpg" 
 import b2 from "../css/photos/books/book4.jpg" 
 import b3 from "../css/photos/books/book5.jpg" 
 import "../css/HomeData.css"
 import Zoom from "react-reveal/Zoom"
+import ContentLoader, { Facebook } from 'react-content-loader'
+import Slide from 'react-reveal/Reveal';
 
 const HomeData = () => {
     
-    const width = window.innerWidth
+    const [width, setWidth] = useState(window.innerWidth)
+    
+    useEffect(() => {
+        setWidth(window.innerWidth)
+        console.log(window.innerWidth);
+    }, [window.innerWidth, window.innerHeight])
 
     const pos1 = {
         first: "cube-1",
@@ -59,86 +67,57 @@ const HomeData = () => {
     }
 
   return (
-    <Container style={{ fontFamily: 'Open Sans'}}>
-        <Zoom>
-        <div>
-            <a href="/books" style={{ textDecoration: 'none', color: 'black'}}>
-                <h1 style={{ marginTop: '200px', fontSize: '40px'}} className="text-center" >
+
+    <Container className="mb-5" style={{ fontFamily: 'Open Sans'}}>
+        <Container>
+            <Row style={{direction: "rtl"}} className="text-md-right text-end mt-4">
+                {
+                    width >= 1000 
+                    ?
+                    <>
+                        <Col md={5} style={{ display: 'flex', alignItems: 'center' }}>
+                            <div >
+                                <h1 className="mt-4" style={{ marginLeft: "20px"}}>
+                                    אורלי רובינזון
+                                </h1>
+                                <div className="mt-4">
+                            אורלי רובינזון (נולדה ב-28 בפברואר 1969) היא מעצבת וסופרת ישראלית היוצרת ספרי עיצוב ואדריכלות ישראלים. שיזמה והובילה פרויקטים חשובים, כגון: סדרות ספרים שעוסקות בעיצוב ישראלי, ספרים שעוסקים באדריכלים ספציפיים ועוד.
+
+            רובינזון הוציאה כ-34 ספרי עיצוב וסטיילינג לבית, ולפי הערכות מכרה יותר מ–300,000 עותקים לאורך השנים.
+                                </div>
+                            </div>
                             
-                הספרים שלי
+                        </Col>
+                        <Col md={1}>
+                            <div></div>
+                        </Col>
+                        <Col md={5} lg={5}>
+                            <img src={robinzon} className="mt-4 data-img" width="100%"/>
+                        </Col>
+                    </>
+                    : 
+                    <>
+                        
+                        <Col md={6} lg={6}>
+                            <img src={robinzon} className="data-img" width="100%"/>
+                        </Col>
+                        <Col md={6} >
+                            <h1 className="mt-4">
+                                אורלי רובינזון
+                            </h1>
+                            <div className="mt-4">
+                        אורלי רובינזון (נולדה ב-28 בפברואר 1969) היא מעצבת וסופרת ישראלית היוצרת ספרי עיצוב ואדריכלות ישראלים. שיזמה והובילה פרויקטים חשובים, כגון: סדרות ספרים שעוסקות בעיצוב ישראלי, ספרים שעוסקים באדריכלים ספציפיים ועוד.
 
-                </h1>
-            </a>
-            <div className="text-center justify-content-center d-flex align-items-center">
-               { width < 800 
-               ? <div className="plate">
-                        <div className={clasa.first}>
-                            <Card variant="Top" style={{ width: '14rem'}}>
-                                <Card.Img src={b1} height="300px" />
-                                <Card.Title className="text-center mt-2">הספר הנמכר ביותר</Card.Title>
-                                <Card.Text  className="text-center" as="span">כל סודות האדריכלות של אורלי רובינזון במהדורה מיוחדת</Card.Text>
-                                <Button className="mt-3" style={{backgroundColor: 'black'}} Variant="primary">למידע נוסף</Button>
-                            </Card>
-                        </div>
-                        <div  className={clasa.second}>
-                                <Card variant="Top" style={{ width: '14rem'}}>
-                                    <Card.Img src={b2} height="300px"/>
-                                    <Card.Title className="text-center mt-2">הספר הנמכר ביותר</Card.Title>
-                                    <Card.Text  className="text-center" as="span">כל סודות האדריכלות של אורלי רובינזון במהדורה מיוחדת</Card.Text>
-                                    <Button className="mt-3" style={{backgroundColor: 'black'}} Variant="primary">למידע נוסף</Button>
-                                </Card>
-                         </div>
-                        <div className={clasa.third}>
-                                <Card variant="Top" style={{ width: '14rem'}}>
-                                    <Card.Img src={b3} height="300px"/>
-                                    <Card.Title className="text-center mt-2">הספר הנמכר ביותר</Card.Title>
-                                    <Card.Text  className="text-center" as="span">כל סודות האדריכלות של אורלי רובינזון במהדורה מיוחדת</Card.Text>
-                                    <Button className="mt-3" style={{backgroundColor: 'black'}} Variant="primary">למידע נוסף</Button>
-                                </Card>
-                        </div>
-                    </div>
-                :
-                <div className="plate">
-                        <div className={clasa.first}>
-                            <Card variant="Top" style={{ width: '16rem'}}>
-                                <Card.Img src={b1} height="400px" />
-                                <Card.Title className="text-center mt-2">הספר הנמכר ביותר</Card.Title>
-                                <Card.Text  className="text-center" as="span">כל סודות האדריכלות של אורלי רובינזון במהדורה מיוחדת</Card.Text>
-                                <Button className="mt-3" style={{backgroundColor: 'black'}} Variant="primary">למידע נוסף</Button>
-                            </Card>
-                        </div>
-                        <div  className={clasa.second}>
-                                <Card variant="Top" style={{ width: '16rem'}}>
-                                    <Card.Img src={b2} height="400px"/>
-                                    <Card.Title className="text-center mt-2">הספר הנמכר ביותר</Card.Title>
-                                    <Card.Text  className="text-center" as="span">כל סודות האדריכלות של אורלי רובינזון במהדורה מיוחדת</Card.Text>
-                                    <Button className="mt-3" style={{backgroundColor: 'black'}} Variant="primary">למידע נוסף</Button>
-                                </Card>
-                         </div>
-                        <div className={clasa.third}>
-                                <Card variant="Top" style={{ width: '16rem'}}>
-                                    <Card.Img src={b3} height="400px"/>
-                                    <Card.Title className="text-center mt-2">הספר הנמכר ביותר</Card.Title>
-                                    <Card.Text  className="text-center" as="span">כל סודות האדריכלות של אורלי רובינזון במהדורה מיוחדת</Card.Text>
-                                    <Button className="mt-3" style={{backgroundColor: 'black'}} Variant="primary">למידע נוסף</Button>
-                                </Card>
-                        </div>
-                    </div>
-                 }
-
+        רובינזון הוציאה כ-34 ספרי עיצוב וסטיילינג לבית, ולפי הערכות מכרה יותר מ–300,000 עותקים לאורך השנים.
+                            </div>
+                        </Col>
+                    </>
+                }
                 
-                </div>
-            </div>
-            
-                <div className="d-flex align-items-center justify-content-center">
-                    <div>
-                        <Button variant="dark" style={{ fontSize: "30px", backgroundColor: "gray", margin: "5px" }} onClick={() => moveLeft()}> ← </Button>
-                        <Button variant="dark" style={{ fontSize: "30px", backgroundColor: "gray",  margin: "5px" }} onClick={() => moveRight()}>→</Button>
-                    </div>
-                </div>
+        </Row>
+        </Container>
         
-
-        </Zoom>
+        
     </Container>
   )
 }

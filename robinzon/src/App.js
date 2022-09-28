@@ -8,6 +8,7 @@ import NewsScreen from "./screens/NewsScreen"
 import "./bootstrap.min (10).css"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import BioScreen from './screens/BioScreen.js'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/holistic" component={HolisticScreen} exact />
         <Route path="/books" component={PrettyBooksScreen} exact />
         <Route path="/allbooks" component={BooksScreen} exact />
+        <Route path="/bio" component={BioScreen} exact />
         <Route path="/" component={HomeScreen} exact />
         <Footer />
       </Router>

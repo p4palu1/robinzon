@@ -23,11 +23,6 @@ const Header = () => {
                 <Offcanvas.Body>
                     <Nav className="justify-content-center flex-grow-1 pe-3 text-black text-right">
                         <Nav.Link href="/bio">אודות</Nav.Link>
-                        <Nav.Link href="/books">ספרי עיצוב ואדריכלות</Nav.Link>    
-                        <Nav.Link href="#action2">הרצאות וקורסים</Nav.Link>    
-                        <Nav.Link href="#action2">יעוץ מקצועי</Nav.Link>    
-                        <Nav.Link href="/holistic">טיפול הוליסטי</Nav.Link>    
-                        <Nav.Link href="/hybrid">הבית ההיברידי</Nav.Link>    
                         <Nav.Link href="/headlines">רובינזון בתקשורת</Nav.Link>    
                     </Nav>
                 </Offcanvas.Body>
