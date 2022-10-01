@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+main {
+    height: 500px !important; 
+    object-fit: contain;
+    overflow: hidden;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+        url("./photos/hybridu.jpg") repeat fixed 100%;
+    background-size: cover;
+    background-position: center;
+    padding-top: 20px;
+    font-size: 40px;
+    margin-right: 0;
+}
+
+.title {
+    color: white;
+    margin-right: 15vh;
+    position: relative;
+    top: 16vh;
+}
+
+.title h1 {
+    font-size: 70px;
+    text-align: right;
+    font-family: 'Open Sans';
+}
+
+.title h2 {
+    font-size: 22px;
+    text-align: right;
+    direction: rtl;
+}
+
+@media only screen and (max-width: 700px) {
+main {
+    height: 800px;
+    object-fit: contain;
+    overflow-x: hidden;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
+    url("./photos/hybridu.jpg") repeat fixed 100%;
+    background-size: cover;
+    background-position: center;
+    padding-top: 20px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+}
+.title {
+    top: 35%;
+    color: white;
+    position: relative;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.title h1 {
+    font-size: 60px;
+    text-align: center;
+
+}
+
+.title h2 {
+    font-size: 22px;
+    text-align: right;
+    direction: rtl;
+}
+}
