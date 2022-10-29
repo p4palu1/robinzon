@@ -1,9 +1,9 @@
 import axios from "axios"
 
-const url1 = "http://localhost:5000/users"
-const url2 = "http://localhost:5000/modules"
-const url3 = "http://localhost:5000/popup"
-const url4 = "http://localhost:5000/list"
+const url1 = "https://robinzonwebsite.herokuapp.com/users"
+const url2 = "https://robinzonwebsite.herokuapp.com/modules"
+const url3 = "https://robinzonwebsite.herokuapp.com/popup"
+const url4 = "https://robinzonwebsite.herokuapp.com/list"
 
 export const fetchModules = () => axios.get(url2)
 export const fetchSingleModule = (id) => axios.get(`${url2}/${id}`)

@@ -43,7 +43,7 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                 </div>
                     </Col>
                     <Col md={6} sm={3}>
-                        <img src={require(`../../../server/uploads/${pathHandler(photos[0])}`)} width="60%" />
+                        <img src={require(`../../../servers/uploads/${pathHandler(photos[0])}`)} width="60%" />
                     </Col>
                 </Row>
                     
