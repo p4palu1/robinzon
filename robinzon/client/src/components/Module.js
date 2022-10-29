@@ -2,7 +2,12 @@ import React from 'react'
 import { Row, Col, Button, Container } from "react-bootstrap"
 import "../css/Module.css"
 
+
 const Module = ({type, photos, bgColor, title, text, textColor}) => {
+    function pathHandler(s) {
+        return s.slice(9)
+    }
+
     switch (type) { 
         case 0 :
             return (
@@ -38,7 +43,7 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                 </div>
                     </Col>
                     <Col md={6} sm={3}>
-                        <img src={photos[0]} width="60%" />
+                        <img src={require(`../../../server/uploads/${pathHandler(photos[0])}`)} width="60%" />
                     </Col>
                 </Row>
                     
@@ -61,10 +66,10 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                         
                      <div className=" row mb-5" style={{marginLeft: "20px", marginRight: "20px"}}>
                             <div className="columnn">
-                                <img src={photos[0]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[0])}`)} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={photos[1]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[1])}`)} width="60%" />
                             </div>
                         </div>
                     </Col>
@@ -97,13 +102,13 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                         
                      <div className=" row mb-5" style={{marginLeft: "20px", marginRight: "20px"}}>
                             <div className="columnn">
-                                <img src={photos[0]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[0])}`)} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={photos[1]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[1])}`)} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={photos[2]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[2])}`)} width="60%" />
                             </div>
                         </div>
                     </Col>
@@ -137,16 +142,16 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                         
                      <div className=" row mb-5" style={{marginLeft: "20px", marginRight: "20px"}}>
                             <div className="columnn">
-                                <img src={photos[0]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[0])}`)} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={photos[1]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[1])}`)} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={photos[2]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[2])}`)} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={photos[3]} />
+                                <img src={require(`../../../server/uploads/${pathHandler(photos[3])}`)} width="60%" />
                             </div>
                         </div>
                     </Col>

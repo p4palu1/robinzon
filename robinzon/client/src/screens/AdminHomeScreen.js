@@ -7,32 +7,30 @@ import ModuleSection from '../components/ModuleSection'
 import PopSection from '../components/PopSection'
 import { getPopUp } from '../actions/PopUpActions'
 import { useDispatch, useSelector } from "react-redux"
-import Loader from "../components/Loader"
+import { Button } from "react-bootstrap" 
 
-const HomeScreen = () => {
+const AdminHomeScreen = ({history}) => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch() 
     const user = useSelector((state) => state.users)
     const { userInfo } = user
     const popUp = useSelector((state) => state.getPopUpReducer)
 
     useEffect(() => {
-      console.log(userInfo)
+      console.log("hey")  
       dispatch(getPopUp())
-    },  [user])
-
+      }, [history])
 
   return (
     <div>
         {
           (popUp && popUp.On && <PopSection message={popUp.text} url={popUp.url} button="לרכישה" textColor="white" bgColor="rgb(200, 28, 28)" On={popUp.On} />)
         }
-
+    
         <HomeData />
-        {JSON.stringify(userInfo)}
         <ModuleSection />
     </div>
   )
 }
 
-export default HomeScreen
+export default AdminHomeScreen

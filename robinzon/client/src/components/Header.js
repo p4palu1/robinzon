@@ -24,6 +24,7 @@ const Header = () => {
                     <Nav className="justify-content-center flex-grow-1 pe-3 text-black text-right">
                         <Nav.Link href="/bio">אודות</Nav.Link>
                         <Nav.Link href="/headlines">רובינזון בתקשורת</Nav.Link>    
+                        <Nav.Link href="/login">כניסת מנהלים</Nav.Link>    
                     </Nav>
                 </Offcanvas.Body>
                 </Navbar.Offcanvas>
