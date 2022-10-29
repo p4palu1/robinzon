@@ -1,9 +1,12 @@
 import React from 'react'
 import { Container, Button } from "react-bootstrap"
-
+import Message from '../components/Message'
+import {useSelector} from "react-redux"
 
 const ChooseModuleScreen = ({history}) => {
     const arr = [0, 1, 2, 3, 4]
+    const {userInfo} = useSelector((state) => state.users)
+
     const handleChoice = (type) => {
         history.push(`/admin/create?type=${type}`)
     }
@@ -11,7 +14,10 @@ const ChooseModuleScreen = ({history}) => {
     return (
         <Container>
             <h1 className='text-end'> בחרי סוג מודול ליצירה</h1>
-            <div className='text-center'>
+
+            {
+                userInfo ? 
+                    <div className='text-center'>
                 {
                 arr.map((i) => 
                     <div className="mt-4">
@@ -23,6 +29,10 @@ const ChooseModuleScreen = ({history}) => {
                 )
                 }
             </div>
+            :
+            <Message variant="danger">אינך מורשה לצפות בדף זה</Message>
+                
+            }
         </Container>
   )
 }

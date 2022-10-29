@@ -22,7 +22,7 @@ const EditPopUpScreen = ({history}) => {
     const dispatch = useDispatch()
     const oldPopUp = useSelector((state) => state.getPopUpReducer)
     const {loading, popUp: nPopUp, success, error} = useSelector((state) => state.updatePopUpReducer)
-
+    const { userInfo } = useSelector((state) => state.users)
     const [loaded, setLoaded] = useState(false)
     
     useEffect(() => {
@@ -51,7 +51,10 @@ const EditPopUpScreen = ({history}) => {
 
   return (
         <Container className="mt-5">
-            {loading && <Loader />}
+            {
+                userInfo ?
+                <div>
+                     {loading && <Loader />}
             { success && <Message variant="success">שינוי בוצע בהצלחה</Message> }
         { error 
         ? <div>{error.message}</div> 
@@ -83,6 +86,12 @@ const EditPopUpScreen = ({history}) => {
             </div>
         </Form>
     }
+    
+                </div>
+                :
+    <Message variant="danger">אינך מורשה לצפות בעמוד זה</Message>
+            }
+           
     </Container>
   )
 }

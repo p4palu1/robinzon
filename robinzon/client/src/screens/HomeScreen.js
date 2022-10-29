@@ -9,7 +9,7 @@ import { getPopUp } from '../actions/PopUpActions'
 import { useDispatch, useSelector } from "react-redux"
 import Loader from "../components/Loader"
 
-const HomeScreen = () => {
+const HomeScreen = ({history}) => {
 
     const dispatch = useDispatch()
     const user = useSelector((state) => state.users)
@@ -17,9 +17,8 @@ const HomeScreen = () => {
     const popUp = useSelector((state) => state.getPopUpReducer)
 
     useEffect(() => {
-      console.log(userInfo)
       dispatch(getPopUp())
-    },  [user])
+    },  [history])
 
 
   return (
@@ -29,7 +28,6 @@ const HomeScreen = () => {
         }
 
         <HomeData />
-        {JSON.stringify(userInfo)}
         <ModuleSection />
     </div>
   )

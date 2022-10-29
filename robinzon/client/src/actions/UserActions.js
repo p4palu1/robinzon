@@ -4,6 +4,7 @@ import * as api from "../api"
 export const login = (username, password) => async (dispatch) => {
 
     try{
+        dispatch({type: 'LOGIN_ATTEMPT'})
         const user = await api.userLogin(username, password)
         dispatch({ type: 'LOGIN', payload: user})
     } catch (error) {

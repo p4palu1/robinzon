@@ -13,22 +13,31 @@ const CreateModuleScreen = ({match, history}) => {
     const dispatch = useDispatch()
     const modules = useSelector((state) => state.moduleReducer)
     const {loading, createdModule, success, error} = useSelector((state) => state.moduleCreateReducer)
+    const {userInfo} = useSelector((state) => state.users)
 
+    function arrfill(type){
+        let arr= []
+        for(let i = 0; i < type; i++){
+                arr.push("")
+            }
+        return arr
+    }
     
     const [newModule, setNewModule] = useState({
         type: type,
         order: 0,
-        photos: [],
+        photos: arrfill(type),
         bgColor: "#563d7c",
         title: "",
         text: "",
-        textColor: "white",
+        textColor: "#ffffff",
     })
 
 
     useEffect(() => {
         dispatch(getModules())   
-    }, [history])
+    }, [history, dispatch])
+
 
     
     const uploadFileHandler = async (e, fi) => {
@@ -71,6 +80,9 @@ const CreateModuleScreen = ({match, history}) => {
   return (
         <Container className="mt-5">
             {
+                userInfo ? 
+                <div>
+                    {
                 loading && <Loader />
             }
             {
@@ -84,12 +96,12 @@ const CreateModuleScreen = ({match, history}) => {
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>כותרת</Form.Label>
                 <Form.Control onChange={(e) => setNewModule({...newModule, title: e.target.value})} 
-                type="text" placeholder="הכניסי כותרת" />
+                type="text" placeholder="הכניסי כותרת" required/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicTitle">
                 <Form.Label>טקסט</Form.Label>
                 <Form.Control onChange={(e) => setNewModule({...newModule, text: e.target.value})} 
-                type="text" placeholder="הכניסי טקסט" />
+                type="text" placeholder="הכניסי טקסט" required/>
             </Form.Group>
             <Form.Group>
                 <Form.Label>בחרי צבע רקע</Form.Label>
@@ -99,6 +111,7 @@ const CreateModuleScreen = ({match, history}) => {
                     defaultValue="#563d7c"
                     title="Choose your color"
                     onChange={(e) => setNewModule({...newModule, bgColor: e.target.value})}
+                
                 />
             </Form.Group>
             <Form.Group>
@@ -112,12 +125,13 @@ const CreateModuleScreen = ({match, history}) => {
                 />
             </Form.Group>
             <Form.Group>
+                <Form.Label>(חובה למלא לפי הסדר)</Form.Label>
                 {type > 0 && <Form.Label>בחרי תמונה</Form.Label>}
                 {
                    fileInputHandler().map((fi) =>
                     <div>
                         <div>תמונה מספר {fi + 1} </div>
-                        <Form.Control type="file" onChange={(e) => uploadFileHandler(e, fi)}/>
+                        <Form.Control type="file" onChange={(e) => uploadFileHandler(e, fi)} required/>
                     </div>
                    )
                 }               
@@ -129,6 +143,12 @@ const CreateModuleScreen = ({match, history}) => {
             </div>
         </Form>
         }
+                </div>
+        :
+        <Message variant="danger">אינך מורשה לצפות בעמוד זה</Message> 
+        
+        }
+            
     </Container>
   )
 }

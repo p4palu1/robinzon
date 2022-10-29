@@ -48,11 +48,8 @@ const ModuleSection = ({history}) => {
         dispatch(getModules())
         console.log(fetchedModules);
         console.log(window.location.pathname.includes("admin"))
-    }, [])
+    }, [history, dispatch])
 
-    useEffect(() => {
-
-    }, [])
 
 
     const handleDelete = (id) => {
@@ -93,22 +90,24 @@ const ModuleSection = ({history}) => {
                 }).map((mod, index) => 
                     <>
                         <Module type={mod.type || 0} photos={mod.photos} bgColor={mod.bgColor} title={mod.title} text={mod.text} textColor={mod.textColor}/>
+                        <div style={{direction: 'rtl', paddingBottom:'20px',paddingTop: '20px', textAlign: "center", backgroundColor: mod.bgColor, width: "100%"}}>
+                            {   
+                            window.location.pathname.includes("admin") &&
+                            <Button onClick={() => handleDelete(mod._id)}><i class="fa-solid fa-xmark">מחיקה</i></Button>
+                        }
                         {   
                             window.location.pathname.includes("admin") &&
-                            <Button onClick={() => handleDelete(mod._id)}><i class="fa-solid fa-xmark"></i></Button>
+                            <Button onClick={() => handleEdit(mod._id, mod.type)}><i class="fa-solid fa-pen-to-square">עריכה</i></Button>
                         }
                         {   
-                            window.location.pathname.includes("admin") &&
-                            <Button onClick={() => handleEdit(mod._id, mod.type)}><i class="fa-solid fa-pen-to-square"></i></Button>
+                            window.location.pathname.includes("admin") && fetchedModules.length - 1 !== mod.order && fetchedModules.length !== 1 &&
+                            <Button onClick={() => handleUp(mod.order, mod._id)}><i class="fa-solid fa-arrow-up">למעלה</i></Button>
                         }
                         {   
-                            window.location.pathname.includes("admin") && fetchedModules.length - 1 !== mod.order &&
-                            <Button onClick={() => handleUp(mod.order, mod._id)}><i class="fa-solid fa-arrow-up"></i></Button>
+                            window.location.pathname.includes("admin") &&  0 < mod.order && fetchedModules.length !== 1 && 
+                            <Button onClick={() => handleDown(mod.order, mod._id)}><i class="fa-solid fa-arrow-down">למטה</i></Button>
                         }
-                        {   
-                            window.location.pathname.includes("admin") &&  0 < mod.order &&
-                            <Button onClick={() => handleDown(mod.order, mod._id)}><i class="fa-solid fa-arrow-down"></i></Button>
-                        }
+                        </div>
                     </>
                 )
             }

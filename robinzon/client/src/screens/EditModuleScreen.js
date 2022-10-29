@@ -20,6 +20,7 @@ const EditModuleScreen = ({history, match}) => {
     const dispatch = useDispatch()
     const {oldModule} = useSelector((state) => state.SingleModuleReducer)
     const {loading, updatedModule, success, error} = useSelector((state) => state.moduleUpdateReducer)
+    const {userInfo} = useSelector((state) => state.userInfo)
     
 const uploadFileHandler = async (e, fi) => {
         const file = e.target.files[0]
@@ -85,6 +86,9 @@ const uploadFileHandler = async (e, fi) => {
   return (
         <Container className="mt-5">
         {
+            userInfo ?
+            <div>
+                 {
             loading && <Loader />
         }
         { 
@@ -145,7 +149,12 @@ const uploadFileHandler = async (e, fi) => {
             </div>
             
         </Form>
+            }
+            </div>
+        :
+        <Message variant="danger">אינך מורשה לצפות </Message>   
     }
+       
     </Container>
   )
 }

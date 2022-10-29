@@ -54,7 +54,7 @@ export const updateModule = (id, module) => async (dispatch) => {
         dispatch({ type: 'UPDATE_SUCCESS', payload: data})
     } catch (error) {
         console.log(error.message)
-        dispatch({ type: 'UPDATE_FAIL', payload: error})
+        dispatch({ type: 'UPDATE_FAIL', payload: error.message})
     }
 }
 
