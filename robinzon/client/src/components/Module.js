@@ -43,7 +43,8 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                 </div>
                     </Col>
                     <Col md={6} sm={3}>
-                        <img src={require(`../../../servers/uploads/${pathHandler(photos[0])}`)} width="60%" />
+                       {/* <img src={photos[0]} width="60%" /> */}
+                        <img src={photos[0]} width="60%" />
                     </Col>
                 </Row>
                     
@@ -66,10 +67,10 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                         
                      <div className=" row mb-5" style={{marginLeft: "20px", marginRight: "20px"}}>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[0])}`)} width="60%" />
+                                <img src={photos[0]} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[1])}`)} width="60%" />
+                                <img src={photos[1]} width="60%" />
                             </div>
                         </div>
                     </Col>
@@ -102,13 +103,13 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                         
                      <div className=" row mb-5" style={{marginLeft: "20px", marginRight: "20px"}}>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[0])}`)} width="60%" />
+                                <img src={photos[0]} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[1])}`)} width="60%" />
+                                <img src={photos[1]} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[2])}`)} width="60%" />
+                                <img src={photos[2]} width="60%" />
                             </div>
                         </div>
                     </Col>
@@ -142,16 +143,16 @@ const Module = ({type, photos, bgColor, title, text, textColor}) => {
                         
                      <div className=" row mb-5" style={{marginLeft: "20px", marginRight: "20px"}}>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[0])}`)} width="60%" />
+                                <img src={photos[0]} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[1])}`)} width="60%" />
+                                <img src={photos[1]} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[2])}`)} width="60%" />
+                                <img src={photos[2]} width="60%" />
                             </div>
                             <div className="columnn">
-                                <img src={require(`../../../servers/uploads/${pathHandler(photos[3])}`)} width="60%" />
+                                <img src={photos[3]} width="60%" />
                             </div>
                         </div>
                     </Col>

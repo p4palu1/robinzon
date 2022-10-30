@@ -6,6 +6,7 @@ import { withRouter } from "react-router"
 import axios from "axios"
 import Message from '../components/Message'
 import Loader from "../components/Loader"
+import FileBase from "react-file-base64"
 
 const CreateModuleScreen = ({match, history}) => {
 
@@ -131,7 +132,8 @@ const CreateModuleScreen = ({match, history}) => {
                    fileInputHandler().map((fi) =>
                     <div>
                         <div>תמונה מספר {fi + 1} </div>
-                        <Form.Control type="file" onChange={(e) => uploadFileHandler(e, fi)} required/>
+                       {/* <Form.Control type="file" onChange={(e) => uploadFileHandler(e, fi)} required/>*/}
+                        <FileBase type="file" multiple={false} onDone={({base64}) =>setNewModule({...newModule, photos: [...newModule.photos.slice(0, fi), base64, ...newModule.photos.slice(fi+1, -1)]}) }/>
                     </div>
                    )
                 }               
