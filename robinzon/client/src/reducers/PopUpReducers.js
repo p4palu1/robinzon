@@ -1,9 +1,9 @@
-export const getPopUpReducer = (pops=[], action) => {
+export const getPopUpReducer = (state={}, action) => {
     switch (action.type) {
         case 'GET_POP_UP':
             return action.payload
         default:
-            return []
+            return state
     }
 }
 

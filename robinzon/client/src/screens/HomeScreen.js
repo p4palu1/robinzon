@@ -8,16 +8,18 @@ import PopSection from '../components/PopSection'
 import { getPopUp } from '../actions/PopUpActions'
 import { useDispatch, useSelector } from "react-redux"
 import Loader from "../components/Loader"
+import { getModules } from '../actions/ModuleActions'
 
 const HomeScreen = ({history}) => {
 
     const dispatch = useDispatch()
     const user = useSelector((state) => state.users)
-    const { userInfo } = user
     const popUp = useSelector((state) => state.getPopUpReducer)
+    const fetchedModules = useSelector((state) => state.moduleReducer) || []
 
     useEffect(() => {
       dispatch(getPopUp())
+      dispatch(getModules())
     },  [history])
 
 
@@ -28,7 +30,7 @@ const HomeScreen = ({history}) => {
         }
 
         <HomeData />
-        <ModuleSection />
+        { fetchedModules && <ModuleSection fetchedModules={fetchedModules} />}
     </div>
   )
 }

@@ -6,6 +6,7 @@ import DragAndDrop from '../components/DragAndDrop'
 import ModuleSection from '../components/ModuleSection'
 import PopSection from '../components/PopSection'
 import { getPopUp } from '../actions/PopUpActions'
+import { getModules } from "../actions/ModuleActions"
 import { useDispatch, useSelector } from "react-redux"
 import { Button } from "react-bootstrap" 
 import Message from "../components/Message"
@@ -15,9 +16,11 @@ const AdminHomeScreen = ({history}) => {
     const dispatch = useDispatch() 
     const {userInfo}  = useSelector((state) => state.users)
     const popUp = useSelector((state) => state.getPopUpReducer)
+    const fetchedModules = useSelector((state) => state.moduleReducer) || []
+
 
     useEffect(() => {
-      console.log(userInfo)  
+      dispatch(getModules())
       dispatch(getPopUp())
       }, [history, dispatch, userInfo])
 
@@ -31,7 +34,7 @@ const AdminHomeScreen = ({history}) => {
         }
     
         <HomeData />
-        <ModuleSection />
+        { fetchedModules && <ModuleSection fetchedModules={fetchedModules} />}
       </div> 
       :
       <div>

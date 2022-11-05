@@ -5,6 +5,7 @@ import { updateModule, getSingleModule } from "../actions/ModuleActions"
 import Loader from "../components/Loader"
 import axios from "axios"
 import Message from "../components/Message"
+import FileBase from "react-file-base64"
 
 const EditModuleScreen = ({history, match}) => {
     
@@ -20,7 +21,7 @@ const EditModuleScreen = ({history, match}) => {
     const dispatch = useDispatch()
     const {oldModule} = useSelector((state) => state.SingleModuleReducer)
     const {loading, updatedModule, success, error} = useSelector((state) => state.moduleUpdateReducer)
-    const {userInfo} = useSelector((state) => state.userInfo)
+    const {userInfo} = useSelector((state) => state.users)
     
 const uploadFileHandler = async (e, fi) => {
         const file = e.target.files[0]
@@ -137,7 +138,7 @@ const uploadFileHandler = async (e, fi) => {
                    fileInputHandler().map((fi) =>
                     <div>
                         <div> תמונה מספר {fi + 1}</div>
-                        <Form.Control type="file" onChange={(e) => uploadFileHandler(e, fi)}/>
+                        <FileBase type="file" multiple={false} onDone={({base64}) =>setPhotos([...photos.slice(0, fi), base64, ...photos.slice(fi+1, -1)])} />
                     </div>
                    )
                 }               

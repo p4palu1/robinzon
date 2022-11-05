@@ -14,12 +14,11 @@ import { Button } from "react-bootstrap"
 import Loader from "./Loader"
 import { moveUpModule, moveDownModule } from '../actions/ModuleListActions'
 
-const ModuleSection = ({history}) => {
+const ModuleSection = ({history, fetchedModules}) => {
 
     const [someList, setSomeList] = useState([])
 
     const dispatch = useDispatch()
-    const fetchedModules = useSelector((state) => state.moduleReducer) || []
     const {modules, loading, success} = useSelector((state) => state.moduleUpReducer)
     const {modules: dmodules, loading: dloading, success: dsuccess} = useSelector((state) => state.moduleDownReducer)
     const {message} = useSelector((state) => state.deleteModuleReducer) 
@@ -45,7 +44,7 @@ const ModuleSection = ({history}) => {
     
 
     useEffect(() => {
-        dispatch(getModules())
+
         console.log(fetchedModules);
         console.log(window.location.pathname.includes("admin"))
     }, [history, dispatch])

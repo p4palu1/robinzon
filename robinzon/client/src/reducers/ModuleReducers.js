@@ -2,8 +2,6 @@ export const moduleReducer = (modules=[], action) => {
     switch(action.type) {
         case 'FETCH_ALL':
             return action.payload
-        case 'CREATE': 
-            return [...modules, action.payload]
         default:
             return modules
     }

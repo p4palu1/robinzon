@@ -20,6 +20,7 @@ const EditPopUpScreen = ({history}) => {
     const [id, setId] = useState("")
 
     const dispatch = useDispatch()
+    
     const oldPopUp = useSelector((state) => state.getPopUpReducer)
     const {loading, popUp: nPopUp, success, error} = useSelector((state) => state.updatePopUpReducer)
     const { userInfo } = useSelector((state) => state.users)
