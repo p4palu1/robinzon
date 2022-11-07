@@ -25,7 +25,7 @@ const PopSection = ({message, button, bgColor, textColor, url, On}) => {
                 </div>  
                 </div>
             <div onClick={() => handleX()} style={{width: '10%',paddingRight: "5px", paddingLeft: "5px"}}>
-                <i class="fa-solid fa-xmark"></i>
+                <span>X</span>
             </div>
         </Navbar>
                 
