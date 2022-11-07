@@ -27,8 +27,8 @@ const Header = ({history}) => {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Nav className="justify-content-center flex-grow-1 pe-3 text-black text-right">
-                        <Nav.Link href="/bio">אודות</Nav.Link>
-                        <Nav.Link href="/headlines">רובינזון בתקשורת</Nav.Link>       
+                        <span onClick={() => history.push("/bio")}><Nav.Link>אודות</Nav.Link></span>
+                        <span onClick={() => history.push("/headlines")}><Nav.Link>רובינזון בתקשורת</Nav.Link></span>       
                         {
                             userInfo ?
                             <>
