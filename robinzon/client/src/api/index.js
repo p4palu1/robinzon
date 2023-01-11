@@ -3,10 +3,10 @@ import axios from "axios"
 
 /// "https://robinzonwebsite.herokuapp.com/users"
 
-const url1 = "https://robinzonwebsite.herokuapp.com/users"
-const url2 = "https://robinzonwebsite.herokuapp.com/modules"
-const url3 = "https://robinzonwebsite.herokuapp.com/popup"
-const url4 = "https://robinzonwebsite.herokuapp.com/list"
+const url1 = "https://robinzon-backend.onrender.com/users"
+const url2 = "https://robinzon-backend.onrender.com/modules"
+const url3 = "https://robinzon-backend.onrender.com/popup"
+const url4 = "https://robinzon-backend.onrender.com/list"
 
 export const fetchModules = () => axios.get(url2)
 export const fetchSingleModule = (id) => axios.get(`${url2}/${id}`)
